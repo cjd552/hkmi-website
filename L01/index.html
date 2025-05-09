@@ -1,0 +1,81 @@
+<!DOCTYPE html> <!--This is used to tell the browser to use the newest version of HTML.-->
+<html> <!--All the specifications of the website are contined within here.-->
+    <head> <!-- The heading. This provides a description of the website and specifies any necessary extensions.-->
+        <title>L01 | My Awesome Web Page</title> <!-- The title is mandatory and is displayed at the top of the browser tab.-->
+    </head>
+    <body> <!-- The content of the website to be displayed.-->
+        <h1 id="website_title"> <!-- Main heading. Each website should only have one H1. May be used by crawlers to understand the site purpose.-->
+            Hello!
+        </h1>
+        <br> <!-- Line break. No need for a closing tag.-->
+        <div id="section_1">
+            <u>WOW</u> <!--Underlined text.-->
+            <br><br>
+            <b> <!-- Bold text.-->
+                This is my cool <i>website</i> <!-- Contains italic text.-->
+            </b>
+            <br>
+            <a href="https://www.example.com" target="_blank">Squids</a> <!--Hyperlink. 
+                "_blank" means to open in a new tab.-->
+            <img id="squid_picture" width="300" src="https://media.istockphoto.com/id/1333573929/photo/raw-fresh-squid-isolated-on-white-background-fresh-shellfish-squid-isolated-top-view.jpg?s=612x612&w=0&k=20&c=tZOMVpqIKTnvAsWmZJfrX_rDNKHg4c_v08nsYSy2JCQ=" />
+        </div>
+        <div id="section_2">
+            <ul style="list-style-type: square;">
+                <!-- Unordered list. By default this is bulleted. The bullet type can be specified here, but it's better to do it through CSS.-->
+                <li>Octopus</li>
+                <li>Cuttlefish</li>
+                <li>Jellyfish</li>
+            </ul>
+            <ol style="list-style-type: upper-roman;">
+                <!-- Ordered list. By default this is numbered.-->
+                <li>Octopus</li>
+                <li>Cuttlefish</li>
+                <li>Jellyfish</li>
+            </ol>
+        </div>
+        <div id="section_3">
+            <table>
+                <th> <!-- Table header.-->
+                    <tr>
+                        <td colspan="2"> --- Cool Table ---</td>
+                        <!-- Colspan means that it will spread across multiple columns.-->
+                        <!-- You can also do rowspan to make it spread across multiple rows.-->
+                    </tr>
+                    <tr> <!-- Specify this is a row.-->
+                        <td>Text</td>
+                        <td>Number</td>
+                    </tr>
+                </th>
+                <tbody> <!-- Table body. Specifying this with a tag will allow for styling.-->
+                    <tr> <!-- Table row.-->
+                        <td>One</td>
+                        <td>1</td>
+                    </tr> <!-- Row 1-->
+                    <tr> <!-- Table row.-->
+                        <td>Two</td>
+                        <td>2</td>
+                    </tr> <!-- Row 2-->          
+                </tbody>
+            </table>
+        </div>
+        <div id="section_4">
+            <p> <!-- Paragraph-->
+                <span id="highlight">Here is a paragraph of text.</span>
+                <!-- This will add the styling relevant to the ID "highlight".-->
+                This is a long paragraph and it will wrap around and stuff. There is a different styling of paragraphs. Wow. Cool text.
+                Here is a paragraph of text. This is a long paragraph and it will wrap around and stuff. There is a different styling of paragraphs. Wow. Cool text.
+                Here is a paragraph of text. This is a long paragraph and it will wrap around and stuff. There is a different styling of paragraphs. Wow. Cool text.
+                Here is a paragraph of text. This is a long paragraph and it will wrap around and stuff. There is a different styling of paragraphs. Wow. Cool text.
+                Here is a paragraph of text. This is a long paragraph and it will wrap around and stuff. There is a different styling of paragraphs. Wow. Cool text.
+            </p>
+        </div>
+        <div id="video_section">
+            <iframe width="853" height="480" src="https://www.youtube.com/embed/_kvEuReNgsw" title="Aquarium 4K Ultra HD - Stunning Coral Reef Fish with Relaxing Meditation Music for Sleep" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <video width="320" height="240" controls poster="./img/fish.jpg">
+                <source src="./video/fish-spinning.mp4" type="video/mp4"> <!-- Video file-->
+                Your browser does not support the video tag. <!-- Placeholder text-->
+            </video>
+        </div>
+    </body>
+</html>
