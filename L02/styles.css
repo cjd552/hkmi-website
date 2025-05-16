@@ -1,0 +1,41 @@
+div#main-card{
+    /*ID of container you are assigning styles to, and specify only if it is a div
+    so even if the ID is the same, it only applies to divs.
+    IDs should not be repeated whenever possible.
+    ID, class name, and element name are examples of selectors.*/
+    background-color:#FBDB93;
+    padding:25px; /* add space around the contents */
+    width: 600px; /* specify the maximum width of the entire container*/
+    border-radius: 15px; /* add rounded corners. 0 to 50 px. */
+} 
+
+div#main-card img{
+    /*Specify all images within the main card*/
+    width: 100%; /* Relative to the container it is within */
+    border-radius: 15px;
+}
+
+.fontColour-1{
+    color:#8A2D3B;
+}
+
+.fontColour-2{
+    color:#BE5B50;
+}
+
+.fontColour-3{
+    color:#641B2E;
+}
+
+.fontHighlight-1{
+    padding: 1px 10px; /* y axis, x axis */ 
+    background-color: orange;
+}
+
+.fontBold{
+    font-weight:bold;
+}
+
+.subscript{
+    font-size:12px;
+}
