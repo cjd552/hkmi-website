@@ -54,7 +54,58 @@
                 </p>
             </div>
         </div>
-        <div id="content_2"></div>
+        <div id="content_2">
+            <!-- Use HTTP POST. HTTP GET is not encrypted, all data is stored in the URL-->
+            <form id="mainform" action="./" method="get">
+                <!-- Use div to keep organised and on separate lines-->
+                <div>
+                    <label for="form_name">
+                        Name:
+                    </label>
+                    <!-- The name is the key for the value and is what is sent in submission. The ID is used to link to the label and in the website.-->
+                    <input type="text" name="name" id="form_name" />
+                </div>
+                <div>
+                    <label for="form_age">
+                        Age:
+                    </label>
+                    <input type="number" name="age" id="form_age" min="0" max="150"/>
+                </div>
+                <div>
+                    <label for="form_email">
+                        Email:
+                    </label>
+                    <input type="email" name="email" id="form_email" min="0" max="150" placeholder="admin@abc.local"/>
+                </div>
+                <div>
+                    <label for="form_sex">
+                        Sex:
+                    </label>
+                    <input type="radio" name="sex" id="form_sex_1" class="form_sex" value="No" > No </input> <!-- The former is the default value read by the program and the latter is the displayed value.-->
+                    <input type="radio" name="sex" id="form_sex_2" class="form_sex" value="Yes" > Yes </input>
+                </div>
+                <div id = "product_form_section">
+                    <label for="form_product">
+                        Product:
+                    </label>
+                    <span id="product_form_options"></span> <!-- Span is inline-->
+
+                    <!-- <input type="checkbox" name="product" id="form_product_A" class="form_product" value="A">Product A </input> The former is the default value read by the program and the latter is the displayed value.
+                    <input type="checkbox" name="product" id="form_product_B" class="form_product" value="B">Product B </input>
+                    <input type="checkbox" name="product" id="form_product_C" class="form_product" value="C">Product C </input> -->
+
+                </div>
+                <!-- textarea allows for bigger sizes of input fields.-->
+                <div>
+                    <label for="form_text">
+                        Cool Text:
+                    </label>
+                    <textarea id="form_text" class rows="4"></textarea>
+                </div>
+                <button id="evil_submit"> Submit (Evil)</button>
+                <input type="submit"> <!-- Without Value, submit button label says Submit in the language of the device.-->
+            </form>
+        </div>
         <div id="banner"></div>
         <div id="footer"></div>
 
@@ -65,7 +116,33 @@
                 alert(value);
                 return;
             }
-            message("hello world :)");
+
+            function getProduct(){
+                // Generate code for a form item
+                var product_obj = ["Product A", "Product B", "Product C"];
+                var target = document.getElementById("product_form_options");
+                var value = "";
+
+                // there is also foreach as a synchronous version of for
+                for(var i = 0; i < product_obj.length; i++){
+                    var v = product_obj[i].split(' ')[1];
+                    value += '<input type="checkbox" name="'+ product_obj[i] + '" id="form_product_'+ v + '" class="form_product" value="'+ v + '">'+ product_obj[i] + '</input>';
+                    
+                }
+                target.innerHTML = value;
+            }
+
+            function submit_mainform(){
+                document.getElementById('mainform').submit();
+            }
+
+            // You cannot use things that make use of the page's contents until it is all loaded.
+            document.addEventListener("DOMContentLoaded", getProduct); // Run getProduct once the page is fully loaded
+            document.addEventListener("DOMContentLoaded", message("hello world :)"));
+            document.getElementById("evil_submit").addEventListener("onclick", submit_mainform);
+
+            // To select by a CSS selector e.g. select by all images use document.querySelector
+
         </script>
 
     </body>
