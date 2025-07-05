@@ -1,0 +1,103 @@
+@font-face{
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-VariableFont_wdth\,wght.ttf") /* Link the font */
+}
+
+#header{
+    background-color: #1d1c23;
+    padding: 20px;
+    display: flex; /* The elements can now move to fill the container*/
+    flex-direction: row; /* Tells the elements to go horizontal */
+    align-items: center; /* Aligns the elements by their centre */
+    justify-content: space-between; /* Assigns blank space between the beginning and end */
+    max-width:1024px;
+    margin:auto;
+}
+
+#nav{
+    display: flex;
+    flex-direction: row;
+}
+
+#nav li{
+    margin-left: 20px;
+    list-style:none; /* Removes the bullet points */
+}
+
+#nav li a{
+    padding: 10px /* Increasing the link size means you can tell it is a link hovering near to it */
+}
+
+#nav li, #nav li a{
+    color: #fff;
+    text-decoration-line: none; /* Removes the underline */
+    text-transform: uppercase;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    /* The first being the name of the custom font and the rest being backups */
+}
+
+#nav a:hover{
+    color: #E9931B; /* The text will change colour on hover */
+}
+
+#content_1{
+    background-color: #c8c7ce;
+    padding: 20px;
+    display: flex; /* The elements can now move to fill the container*/
+    align-items: center;
+    flex-direction: row; /* Tells the elements to go horizontal */
+    justify-content: space-between;
+    max-width: 1024px;
+    margin:auto;
+}
+
+#c1_left img{
+    width: 100%;
+}
+
+#c1_right{
+    padding: 0px 30px;
+    flex-wrap: wrap;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    color: #29282b;
+    max-width: 60%;
+    min-width: 200px;
+}
+
+#c1_right h2{
+    font-size: 34px;
+    margin: 10px 0px 0px 0px;
+}
+
+#c1_right p{
+    font-size: 18px;
+}
+
+@media only screen and (max-width:600px){
+    #nav{
+        /* Turn this into a pop out menu */
+        flex-direction: column;
+        display: none;
+        position: fixed;
+        top: 60px; /* Match the height of the top bar */
+        left: 0px;
+        background-color: #29282b;
+        width: 100vw; /* 100% of view width */
+        padding: 20px;
+    }
+
+    #nav li{
+        /* Space out the items in the list when shown vertically */
+        margin-top: 15px;
+    }
+
+    #content_1{
+        flex-direction: column;
+    }
+
+    #c1_right{
+        max-width: 100%;
+        /* Need to override the maximum width, or the content will be stuck in one side */
+    }
+}
+/* If the screen size is less than 600px, then the content will be displayed in a column */

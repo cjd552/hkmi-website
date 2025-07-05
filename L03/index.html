@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Care</title>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+    </head>
+
+    <body>
+        <div id="header">
+            <div id="left">
+                <img id="logo" src="./img/logo.png" alt="Car Care company logo">
+            </div>
+            <div id="right">
+                <!-- Add a button to activate the menu using a custom Javascript function.-->
+                <!-- (Next lesson)-->
+                <!-- Bootstrap can also be used for this.-->
+
+                <ul id="nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#">Pricing</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="img_banner"></div>
+        <div id="cards"></div>
+        <div id="content_1">
+            <div id="c1_left">
+                <img src="./img/people.png" alt="Image of employees smiling"/>
+            </div>
+            <div id="c1_right">
+                <h2>Hello, Welcome!!</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omins minus tmporibus perferendis nescieunt quam repllendus nulla nemo ipsum odit corrupti consequuntur possimus, vero mollita velit ad consectetur. Alias, laborum excepturi nihil autem nemo numquam, ipsa architecto non, magni consequuntur quam.
+                    <br><br>
+                    Perferendis nesciunt quam repellendus nulla nemo ipsum odit corrupti consequuntur possimus, vero mollitia velit ad consectetur.
+                </p>
+            </div>
+        </div>
+        <div id="content_2">
+            <!-- Use HTTP POST. HTTP GET is not encrypted, all data is stored in the URL-->
+            <form id="mainform" action="./" method="get">
+                <!-- Use div to keep organised and on separate lines-->
+                <div>
+                    <label for="form_name">
+                        Name:
+                    </label>
+                    <!-- The name is the key for the value and is what is sent in submission. The ID is used to link to the label and in the website.-->
+                    <input type="text" name="name" id="form_name" />
+                </div>
+                <div>
+                    <label for="form_job">
+                        Job:
+                    </label>
+                    <input type="text" name="name" id="form_job" />
+                </div>
+                <div>
+                    <label for="form_age">
+                        Age:
+                    </label>
+                    <input type="number" name="age" id="form_age" min="0" max="150"/>
+                </div>
+                <div>
+                    <label for="form_email">
+                        Email:
+                    </label>
+                    <input type="email" name="email" id="form_email" min="0" max="150" placeholder="admin@abc.local"/>
+                </div>
+                <div>
+                    <label for="form_sex">
+                        Sex:
+                    </label>
+                    <input type="radio" name="sex" id="form_sex_1" class="form_sex" value="No" > No </input> <!-- The former is the default value read by the program and the latter is the displayed value.-->
+                    <input type="radio" name="sex" id="form_sex_2" class="form_sex" value="Yes" > Yes </input>
+                </div>
+                <div id = "product_form_section">
+                    <label for="form_product">
+                        Product:
+                    </label>
+                    <span id="product_form_options"></span> <!-- Span is inline-->
+
+                    <!-- <input type="checkbox" name="product" id="form_product_A" class="form_product" value="A">Product A </input> The former is the default value read by the program and the latter is the displayed value.
+                    <input type="checkbox" name="product" id="form_product_B" class="form_product" value="B">Product B </input>
+                    <input type="checkbox" name="product" id="form_product_C" class="form_product" value="C">Product C </input> -->
+
+                </div>
+                <!-- textarea allows for bigger sizes of input fields.-->
+                <div>
+                    <label for="form_text">
+                        Cool Text:
+                    </label>
+                    <textarea id="form_text" class rows="4"></textarea>
+                </div>
+                <button id="evil_submit" type="button" onclick="f_submit()"> Submit (Evil)</button>
+                <input type="submit"> <!-- Without Value, submit button label says Submit in the language of the device.-->
+            </form>
+        </div>
+        <div id="banner"></div>
+        <div id="footer"></div>
+
+        <!-- Import JQuery without having to install it using Google CDN-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <script>
+            // Javascript can happen here. This is a client-side program
+            function message(value){
+                // Add a popup with a given message
+                alert(value);
+                return;
+            }
+
+            function getProduct(){
+                // Generate code for a form item
+                var product_obj = ["Product A", "Product B", "Product C"];
+                var target = document.getElementById("product_form_options");
+                var value = "";
+
+                // there is also foreach as a synchronous version of for
+                for(var i = 0; i < product_obj.length; i++){
+                    var v = product_obj[i].split(' ')[1];
+                    value += '<input type="checkbox" name="'+ product_obj[i] + '" id="form_product_'+ v + '" class="form_product" value="'+ v + '">'+ product_obj[i] + '</input>';
+                    
+                }
+                target.innerHTML = value;
+            }
+
+            // function submit_mainform(){
+            //     document.getElementById('mainform').submit();
+            // }
+
+            // You cannot use things that make use of the page's contents until it is all loaded.
+            document.addEventListener("DOMContentLoaded", getProduct); // Run getProduct once the page is fully loaded
+            document.addEventListener("DOMContentLoaded", message("hello world :)"));
+            // document.getElementById("evil_submit").addEventListener("onclick", submit_mainform);
+
+            // To select by a CSS selector e.g. select by all images use document.querySelector
+
+            // Javascript AJAX
+
+            $.ajax({
+                headers:{
+                    'Access-Control-Allow-Origin' :'*', //Allow access to any external domains that allow it
+                    'x-api-key': 'reqres-free-v1' // Add the API key
+                },
+                methods:'get',
+                url:'https://reqres.in/api/users?page=2',
+                dataType:'json',
+                success: function(data){
+                    return data.data
+                }
+            }).then((data)=>{
+                console.log(data)
+                }
+                );
+
+            // Setting an external function to call the AJAX
+            // function callMe(obj, successf, fail){
+            //     $.ajax({
+            //         headers:{
+            //             'Access-Control-Allow-Origin' :'*', //Allow access to any external domains that allow it
+            //             'x-api-key': 'reqres-free-v1' // Add the API key
+            //         },
+            //         methods:'get',
+            //         url:'https://reqres.in/api/users?page=2',
+            //         dataType:'json',
+
+            //         // success: function(data){
+            //         //     console.log(data)
+            //         // }, // You can also externally define a function and call it here
+            //         success: successf,
+            //         error: fail,
+            //     }).then((success)=>{
+            //         console.log(success)
+            //         }
+            //      );
+            // }
+            
+            // callMe({},
+            //     function(data){
+            //         return data.data
+            //     },
+            // )
+
+
+            function f_submit(){
+                $.ajax({
+                    headers:{
+                        'Access-Control-Allow-Origin' :'*', //Allow access to any external domains that allow it
+                        'x-api-key': 'reqres-free-v1' // Add the API key
+                    },
+                    methods:'post',
+                    url:'https://reqres.in/api/users',
+                    dataType:'json',
+                    data: {
+                            name: $("#form_name").val(), // Get value from the form
+                            job: $("#form_job").val(),
+                        },
+                    success: function(data){ // success function
+                            alert("Data: "+ data);
+                        }
+                });
+                // THe below is equivalent, but can't be used as you can't set the headers
+                // $.post("http://reqres.in/api/users", // Submit the data to this API
+                //     {
+                //         name: $("#form_name").val(), // Get value from the form
+                //         job: $("#form_job").val(),
+                //     },
+                //     function(data, status){ // success function
+                //         alert("Data: "+ data.id + "\n Status: " + status);
+                //     }
+                // );
+            }
+
+        </script>
+
+    </body>
+
+</html>
